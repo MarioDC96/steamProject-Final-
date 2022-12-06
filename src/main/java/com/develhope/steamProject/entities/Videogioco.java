@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "videogioco")
 @Getter
 @Setter
 @ToString
@@ -19,7 +19,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Videogioco {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
     private String titolo;
