@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://staem.ct9alvdbp5ti.us-east-1.rds.amazonaws.com/steamProject
-    username: admin
-    password: projectstaem
+    url: jdbc:mysql://localhost/staemProject
+    username: root
+    password: //Inserire la vostra passwors
   jpa:
     database: mysql
     show_sql: true
