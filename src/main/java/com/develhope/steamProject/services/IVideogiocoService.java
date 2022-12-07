@@ -13,7 +13,7 @@ public interface IVideogiocoService {
     HttpStatus deleteVideogioco(Long id);
     Collection<Videogioco> getVideogiochi();
     Optional<Videogioco> getVideogioco(Long id);
-    List<Videogioco> getVideogiochiTitolo(String titolo);
-    List<Videogioco> getVideogiochiGenere(String genere);
+    List<Videogioco> getVideogiochiTitolo(String titolo, int page, int size);
+    List<Videogioco> getVideogiochiGenere(String genere, int page, int size);
 
 }

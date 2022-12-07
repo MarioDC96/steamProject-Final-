@@ -41,13 +41,13 @@ public class VideogiocoService implements IVideogiocoService{
     }
 
     @Override
-    public List<Videogioco> getVideogiochiTitolo(String titolo) {
-        return videogiocoRepository.findByTitoloLike(titolo, PageRequest.of(0,5));
+    public List<Videogioco> getVideogiochiTitolo(String titolo, int page, int size) {
+        return videogiocoRepository.findByTitoloLike(titolo, PageRequest.of(page,size));
     }
 
     @Override
-    public List<Videogioco> getVideogiochiGenere(String genere) {
-        return videogiocoRepository.findByGeneriLike(genere, PageRequest.of(0,5));
+    public List<Videogioco> getVideogiochiGenere(String genere, int page, int size) {
+        return videogiocoRepository.findByGeneriLike(genere, PageRequest.of(page,size));
     }
 
 }
