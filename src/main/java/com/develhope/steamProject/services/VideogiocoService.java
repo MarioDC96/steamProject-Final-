@@ -3,6 +3,7 @@ package com.develhope.steamProject.services;
 import com.develhope.steamProject.entities.Videogioco;
 import com.develhope.steamProject.repositories.VideogiocoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -41,12 +42,12 @@ public class VideogiocoService implements IVideogiocoService{
 
     @Override
     public List<Videogioco> getVideogiochiTitolo(String titolo) {
-        return videogiocoRepository.findByTitoloLike(titolo);
+        return videogiocoRepository.findByTitoloLike(titolo, PageRequest.of(0,5));
     }
 
     @Override
     public List<Videogioco> getVideogiochiGenere(String genere) {
-        return videogiocoRepository.findByGeneriLike(genere);
+        return videogiocoRepository.findByGeneriLike(genere, PageRequest.of(0,5));
     }
 
 }
