@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,4 +32,11 @@ public class Utente {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idLibreria", referencedColumnName = "id")
     private Libreria libreria;
+
+    @OneToOne(mappedBy = "utente")
+    private Acquisto acquisto;
+
+    @OneToMany(mappedBy = "utente")
+    private List <Feedback> feedback;
+
 }

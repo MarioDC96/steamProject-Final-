@@ -4,11 +4,8 @@ package com.develhope.steamProject.controllers;
 import com.develhope.steamProject.entities.Utente;
 import com.develhope.steamProject.services.UtenteService;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.hibernate.QueryParameterException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

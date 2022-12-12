@@ -30,6 +30,12 @@ public class Videogioco {
     private String divieti;
     private String trailer;
 
+    @OneToOne(mappedBy = "videogioco")
+    private Acquisto acquisto;
+
+    @OneToMany(mappedBy = "videogioco")
+    private List <Feedback> feedback;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

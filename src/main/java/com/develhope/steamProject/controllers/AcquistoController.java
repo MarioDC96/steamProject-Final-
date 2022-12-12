@@ -1,0 +1,11 @@
+package com.develhope.steamProject.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("acquisto")
+public class AcquistoController {
+
+
+}
