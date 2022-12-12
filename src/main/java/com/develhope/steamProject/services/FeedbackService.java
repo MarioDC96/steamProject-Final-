@@ -37,7 +37,7 @@ public class FeedbackService implements IFeedbackService{
     public HttpStatus insertFeedback(Long idutente, Long idvideogioco, int voto, String commento){
        Utente utente = utenteRepository.getReferenceById(idutente);
        Acquisto acquisto = acquistoRepository.getReferenceById(idvideogioco);
-       if(!utente.isGuest() && acquisto != null ){
+       if(utente.isGuest() && acquisto != null ){
            Feedback feedback = new Feedback();
            feedback.setVoto(voto);
            feedback.setCommento(commento);

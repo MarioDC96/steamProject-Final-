@@ -19,6 +19,7 @@ public class Acquisto {
     private Long id;
     private float costo;
     private Year dataAcquisto;
+    private boolean disponibile;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idVideogioco", referencedColumnName = "id")

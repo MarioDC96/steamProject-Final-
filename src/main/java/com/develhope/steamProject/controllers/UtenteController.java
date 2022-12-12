@@ -6,6 +6,7 @@ import com.develhope.steamProject.services.UtenteService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.QueryParameterException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,10 @@ public class UtenteController {
             response.setStatus(HttpServletResponse.SC_ACCEPTED);
             return utente;
         }
+    }
+    @PutMapping("delete")
+    public HttpStatus deleteGamesByUtente(@RequestParam Long idutente, @RequestParam Long idVideogioco){
+        return utenteService.deleteGames(idutente,idVideogioco);
     }
 
 }
