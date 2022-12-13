@@ -16,5 +16,7 @@ public interface VideogiocoRepository extends JpaRepository<Videogioco, Long> {
 
     @Query("select v from Videogioco v where v.generi like %?#{[0].toUpperCase()}%")
     List<Videogioco> findByGeneriLike(String generi, Pageable pageable);
+
+
 }
 

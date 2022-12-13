@@ -1,5 +1,7 @@
 package com.develhope.steamProject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Utente {
 
     @Id
@@ -27,16 +30,18 @@ public class Utente {
     private String indirizzo;
     private LocalDate dataNascita;
     private float saldo;
-    private boolean guest;
+    private boolean logged;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idLibreria", referencedColumnName = "id")
     private Libreria libreria;
 
-    @OneToOne(mappedBy = "utente")
-    private Acquisto acquisto;
+    @OneToMany(mappedBy = "utente")
+    @JsonIgnore
+    private List<Acquisto> acquisto;
 
     @OneToMany(mappedBy = "utente")
+    @JsonIgnore
     private List <Feedback> feedback;
 
 }

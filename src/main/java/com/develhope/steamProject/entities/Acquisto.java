@@ -1,5 +1,6 @@
 package com.develhope.steamProject.entities;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,11 +22,12 @@ public class Acquisto {
     private Year dataAcquisto;
     private boolean disponibile;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idVideogioco", referencedColumnName = "id")
-    private Videogioco videogioco;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idvideogioco", referencedColumnName = "id")
+    private Videogioco videogioco;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idutente", referencedColumnName = "id")
     private Utente utente;
 }

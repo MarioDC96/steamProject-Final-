@@ -1,7 +1,6 @@
 package com.develhope.steamProject.entities;
-
-import com.develhope.steamProject.entities.enumerations.Divieto;
-import com.develhope.steamProject.entities.enumerations.Genere;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -17,6 +16,7 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Videogioco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +31,11 @@ public class Videogioco {
     private String trailer;
 
     @OneToOne(mappedBy = "videogioco")
+    @JsonIgnore
     private Acquisto acquisto;
 
     @OneToMany(mappedBy = "videogioco")
+    @JsonIgnore
     private List <Feedback> feedback;
 
     @Override
