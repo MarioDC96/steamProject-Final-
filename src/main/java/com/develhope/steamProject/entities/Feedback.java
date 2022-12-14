@@ -29,4 +29,5 @@ public class Feedback {
     @ManyToOne
     @JoinColumn(name = "idVideogioco", referencedColumnName = "id")
     private Videogioco videogioco;
+
 }

@@ -10,5 +10,7 @@ import java.util.List;
 public interface AcquistoRepository extends JpaRepository<Acquisto, Long> {
     @Query(value = "SELECT * FROM acquisto  WHERE acquisto.idutente = ?1", nativeQuery = true)
     List<Acquisto> findPurchaseByUtente(Long idUtente);
+    @Query(value = "SELECT * FROM acquisto  WHERE acquisto.idvideogioco = ?1", nativeQuery = true)
+    List<Acquisto> findPurchaseByIdGames(Long idvideogioco);
 
 }

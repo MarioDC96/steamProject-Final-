@@ -18,7 +18,7 @@ public class Libreria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @OneToOne(mappedBy = "libreria")
     private Utente utente;

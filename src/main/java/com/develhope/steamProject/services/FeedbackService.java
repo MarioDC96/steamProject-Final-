@@ -15,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class FeedbackService implements IFeedbackService{
@@ -36,8 +39,9 @@ public class FeedbackService implements IFeedbackService{
     @Override
     public HttpStatus insertFeedback(Long idutente, Long idvideogioco, int voto, String commento){
        Utente utente = utenteRepository.getReferenceById(idutente);
-       Acquisto acquisto = acquistoRepository.getReferenceById(idvideogioco);
-       if(utente.isLogged() && acquisto != null ){
+       List<Acquisto> acquisto = acquistoRepository.findPurchaseByIdGames(idvideogioco);
+       int exist = feedbackRepository.ifExist(idvideogioco,idutente);
+       if(utente.isLogged() && acquisto != null && exist != 1 ){
            Feedback feedback = new Feedback();
            feedback.setVoto(voto);
            feedback.setCommento(commento);
@@ -48,7 +52,7 @@ public class FeedbackService implements IFeedbackService{
            HttpStatus httpStatus = HttpStatus.OK;
            return httpStatus;
        }else {
-           throw new QueryParameterException("Videogioco non acquistato, non puoi recensirlo oppure utente non registrato");
+           throw new QueryParameterException("Videogioco già recensito o non acquistato, se non sei loggato registrati");
        }
     }
 

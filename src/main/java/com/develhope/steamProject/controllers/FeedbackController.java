@@ -13,7 +13,7 @@ public class FeedbackController {
     private FeedbackService feedbackService;
 
 
-    //il metodo funziona ma inserisce piu volte feedback (commento,voto) sullo stesso gioco
+
     @PutMapping("feedback")
     public HttpStatus insertFeedback(@RequestParam Long idutente,@RequestParam Long idvideogioco,@RequestParam int voto, @RequestParam String commento){
         return feedbackService.insertFeedback(idutente,idvideogioco,voto,commento);
