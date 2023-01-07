@@ -23,6 +23,10 @@ public class UtenteService implements IUtenteService{
     @Autowired
     private AcquistoRepository acquistoRepository;
 
+    public Utente getUtenteSignIn (Utente utente){
+
+        return utenteRepository.saveAndFlush(utente);
+    }
 
     @Override
     public List <Utente> getUtenteSingle(String nickname, String password) {
