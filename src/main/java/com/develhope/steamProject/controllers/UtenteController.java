@@ -24,9 +24,7 @@ public class UtenteController {
 
     @PostMapping("sign-in")
     public Utente registraUtente(@RequestBody Utente utente){
-
         return utenteService.getUtenteSignIn(utente);
-
     }
 
 
@@ -48,8 +46,6 @@ public class UtenteController {
     @GetMapping("games")
     public List <Videogioco> getListGames(@RequestParam Long idutente){
         return utenteService.getPersonalGames(idutente);
-
-
     }
 
 }

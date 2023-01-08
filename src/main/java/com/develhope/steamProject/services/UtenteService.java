@@ -24,7 +24,6 @@ public class UtenteService implements IUtenteService{
     private AcquistoRepository acquistoRepository;
 
     public Utente getUtenteSignIn (Utente utente){
-
         return utenteRepository.saveAndFlush(utente);
     }
 

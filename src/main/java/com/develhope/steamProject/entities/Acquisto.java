@@ -1,10 +1,9 @@
 package com.develhope.steamProject.entities;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.Year;
+import java.time.LocalDate;
+
 @Entity
 @Data
 @Table(name = "acquisto")
@@ -19,7 +18,7 @@ public class Acquisto {
     @Column(name = "id", nullable = false)
     private Long id;
     private float costo;
-    private Year dataAcquisto;
+    private LocalDate dataAcquisto;
     private boolean disponibile;
 
 
