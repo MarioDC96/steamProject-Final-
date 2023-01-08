@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UtenteService implements IUtenteService{
@@ -28,9 +29,9 @@ public class UtenteService implements IUtenteService{
     }
 
     @Override
-    public List <Utente> getUtenteSingle(String nickname, String password) {
-       return utenteRepository.getUtenteByFilter(nickname, password);
-
+    public Utente getUtenteSingle(String nickname, String password) {
+       Optional<Utente> utenteOptional = utenteRepository.getUtenteByNicknameAndPassword(nickname, password);
+       return utenteOptional.orElse(null);
     }
 
 
@@ -62,7 +63,5 @@ public class UtenteService implements IUtenteService{
         }else{
             throw new QueryParameterException("Untente non registrato o non ha svolto acquisti");
         }
-
-
     }
 }

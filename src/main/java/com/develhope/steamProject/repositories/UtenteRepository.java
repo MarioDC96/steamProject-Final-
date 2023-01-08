@@ -9,10 +9,13 @@ import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UtenteRepository extends JpaRepository <Utente, Long> {
 
     @Query(value = "SELECT * FROM utente  WHERE utente.nickname = ?1 AND utente.password = ?2", nativeQuery = true)
     List<Utente> getUtenteByFilter( String nickname, String password);
+
+    Optional<Utente> getUtenteByNicknameAndPassword(String nickname, String password);
 }

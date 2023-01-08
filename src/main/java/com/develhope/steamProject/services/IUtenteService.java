@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IUtenteService {
 
-    List<Utente> getUtenteSingle(String nickname, String titolo);
+    Utente getUtenteSingle(String nickname, String titolo);
     public HttpStatus deleteGames(Long idutente, Long idVideogioco);
 
     public List<Videogioco> getPersonalGames(Long idUtente);

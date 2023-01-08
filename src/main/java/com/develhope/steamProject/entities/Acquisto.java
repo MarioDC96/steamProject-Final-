@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
@@ -18,7 +19,7 @@ public class Acquisto {
     @Column(name = "id", nullable = false)
     private Long id;
     private float costo;
-    private LocalDate dataAcquisto;
+    private Date dataAcquisto;
     private boolean disponibile;
 
 

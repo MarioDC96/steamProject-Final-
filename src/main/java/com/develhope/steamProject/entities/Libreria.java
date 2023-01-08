@@ -1,5 +1,6 @@
 package com.develhope.steamProject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,5 +22,7 @@ public class Libreria {
     private long id;
 
     @OneToOne(mappedBy = "libreria")
+    @JoinColumn(name = "idUtente", referencedColumnName = "id")
+    @JsonIgnore
     private Utente utente;
 }

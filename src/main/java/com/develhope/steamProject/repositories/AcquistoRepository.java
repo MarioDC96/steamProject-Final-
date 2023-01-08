@@ -14,5 +14,4 @@ public interface AcquistoRepository extends JpaRepository<Acquisto, Long> {
     @Query(value = "SELECT * FROM acquisto  WHERE acquisto.idvideogioco = ?1", nativeQuery = true)
     List<Acquisto> findPurchaseByIdGames(Long idvideogioco);
 
-    Optional<Acquisto> findPurchaseByUtenteAndVideogioco(long idUtente, long idVideogioco);
 }
